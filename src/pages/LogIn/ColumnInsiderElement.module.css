@@ -1,0 +1,28 @@
+.columnInsiderElement {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.columnInsiderElement > video {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 30px;
+}
+
+.columnInsiderElement > img {
+  position: relative;
+  width: 60%;
+}
+
+.columnInsiderContent {
+  position: absolute;
+  bottom: 15px;
+  left: 15px;
+}
+

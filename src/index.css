@@ -1,0 +1,51 @@
+:root {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "SF Pro Display", system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+div {
+  border-radius: 30px;
+}
+
+label, input, button {
+  display: block;
+  font-size: 0.9rem;
+}
+
+input:focus {
+  outline: none;
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+form > button:first-of-type {
+  background-color: #1F1F1F;
+  color: white;
+  border: none;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+}

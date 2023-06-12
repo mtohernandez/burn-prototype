@@ -19,7 +19,8 @@ const ColumnInsiderElement = (props) => {
         onMouseEnter={playVideo}
         onMouseLeave={stopVideo}
         src={props.video}
-        poster={props.poster}
+        // poster={props.poster}
+        preload="metadata"
       />
       <div className={styles.columnInsiderContent}>
         <h2>{props.name}</h2>

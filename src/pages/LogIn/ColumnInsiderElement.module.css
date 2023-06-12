@@ -5,6 +5,7 @@
   justify-content: center;
   width: 100%;
   height: 100%;
+  overflow: hidden;
 }
 
 .columnInsiderElement > video {
@@ -17,12 +18,31 @@
 
 .columnInsiderElement > img {
   position: relative;
-  width: 60%;
+  /* object-fit: contain; */
+  width: 50%;
 }
 
 .columnInsiderContent {
   position: absolute;
   bottom: 15px;
+  left: -100%;
+  color: white;
+  transition: all 0.5s ease-in-out;
+}
+
+.columnInsiderContent > h2 {
+  font-style: italic ;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.columnInsiderContent > h3 {
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+.columnInsiderElement:hover .columnInsiderContent {
+  position: absolute;
   left: 15px;
 }
 

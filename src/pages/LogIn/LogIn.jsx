@@ -2,6 +2,7 @@ import ColumnContainer from "./ColumnContainer";
 import ColumnElement from "./ColumnElement";
 import ColumnInsiderElement from "./ColumnInsiderElement";
 import { CustomForm } from "../../components/Form";
+import supabase from "../../supabase";
 
 import styles from "./LogIn.module.css";
 
@@ -9,18 +10,33 @@ import video from "../../assets/testVideo.mp4";
 import poster from "../../assets/testPoster.jpg";
 import burnIcon from "../../assets/burnIcon.svg";
 import videoMain from "../../assets/testMainVideo.mp4";
+import { useContext } from "react";
 
 const LogIn = () => {
   const videoSrc = video;
   const posterSrc = poster;
+
+  const signUpUser = async (email, password) => {
+    const { user, error } = await supabase.auth
+      .signInWithPassword({
+        email,
+        password,
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const playVideo = (videoRef) => {
     videoRef.current.play();
   };
 
   const stopVideo = (videoRef) => {
-    videoRef.current.load();
+    setTimeout(() => {
+      videoRef.current.pause();
+    }, 1000);
   };
+
 
   return (
     <div className={styles.logIn}>
@@ -30,7 +46,7 @@ const LogIn = () => {
             name="Name"
             description="Description"
             video={videoSrc}
-            poster={poster}
+            // poster={poster}
             playVideo={playVideo}
             stopVideo={stopVideo}
           />
@@ -40,7 +56,7 @@ const LogIn = () => {
             name="Name"
             description="Description"
             video={videoSrc}
-            poster={poster}
+            // poster={poster}
             playVideo={playVideo}
             stopVideo={stopVideo}
           />
@@ -53,7 +69,7 @@ const LogIn = () => {
             name="Name"
             description="Description"
             video={videoSrc}
-            poster={poster}
+            // poster={poster}
             playVideo={playVideo}
             stopVideo={stopVideo}
           />
@@ -63,7 +79,7 @@ const LogIn = () => {
             name="Name"
             description="Description"
             video={videoSrc}
-            poster={poster}
+            // poster={poster}
             playVideo={playVideo}
             stopVideo={stopVideo}
           />
@@ -73,7 +89,7 @@ const LogIn = () => {
             name="Name"
             description="Description"
             video={videoSrc}
-            poster={poster}
+            // poster={poster}
             playVideo={playVideo}
             stopVideo={stopVideo}
           />
@@ -82,7 +98,7 @@ const LogIn = () => {
 
       <ColumnContainer>
         <ColumnElement order={1}>
-          <ColumnInsiderElement 
+          <ColumnInsiderElement
             video={videoMain}
             playVideo={playVideo}
             stopVideo={stopVideo}
@@ -91,7 +107,7 @@ const LogIn = () => {
           </ColumnInsiderElement>
         </ColumnElement>
         <ColumnElement order={1.5}>
-          <CustomForm />
+          <CustomForm signUpUser={signUpUser} />
         </ColumnElement>
       </ColumnContainer>
     </div>

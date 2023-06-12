@@ -8,15 +8,13 @@ import facebookIcon from "../../assets/facebookIcon.svg";
 const { customForm, customFormTitle, customFormInside, customFormSignUp } =
   styles;
 
-const CustomForm = () => {
+const CustomForm = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [error, setError] = useState(false);
-
-  const handleSubmit = (e) => {
+  const  handleSubmit = async (e) => {
     e.preventDefault();
-    // Handle form submission with firebase
+    await props.signUpUser(email, password);
   };
 
   const handleEmailChange = (e) => {
@@ -46,7 +44,7 @@ const CustomForm = () => {
             placeholder="password"
             onChange={handlePasswordChange}
           />
-          {error && <span>{errorMessage}</span>}
+          {/* {error && <span>{errorMessage}</span>} */}
         </div>
         <p className={customFormSignUp}>
           Not having an account? <span>Sign Up</span>
